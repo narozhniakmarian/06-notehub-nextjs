@@ -3,6 +3,7 @@ import { Note } from "@/types/note";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import css from "./NoteList.module.css";
+import Link from "next/link";
 
 interface NoteListProps {
   notes: Note[];
@@ -17,7 +18,6 @@ export default function NoteList({ notes }: NoteListProps) {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["noteHubKey"] });
-      console.log(`"toast.success("Success! Deletion was successful")"`); //!
       toast.success("Success! Deletion was successful");
     },
   });
@@ -34,6 +34,9 @@ export default function NoteList({ notes }: NoteListProps) {
           <p className={css.content}>{note.content}</p>
           <div className={css.footer}>
             <span className={css.tag}>{note.tag}</span>
+            <Link className={css.link} href={`/notes/${note.id}`}>
+              Detailis
+            </Link>
             <button
               onClick={() => handleDeleteNote(note.id)}
               className={css.glowButton}

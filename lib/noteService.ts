@@ -1,3 +1,5 @@
+//lib>noteService.ts
+
 import axios from "axios";
 import type { Note, NotePost } from "@/types/note";
 
@@ -8,7 +10,7 @@ export interface NotesResponse {
 
 const BASE_URL = "https://notehub-public.goit.study/api/notes";
 const API_TOKEN = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
-
+console.log(API_TOKEN);
 const buildFetchConfig = (params?: Record<string, string | number>) => ({
   params,
   headers: {
@@ -33,11 +35,18 @@ async function noteFetch(
       Authorization: `Bearer ${API_TOKEN}`,
     },
   });
-
+  console.log(response.data);
   return response.data;
 }
-
 export default noteFetch;
+
+export async function noteFetchID(id: string): Promise<Note> {
+  const responseID = await axios.get<Note>(
+    `${BASE_URL}/${id}`,
+    buildFetchConfig()
+  );
+  return responseID.data;
+}
 
 export async function createNote(notePost: NotePost): Promise<Note> {
   const postNewItem = await axios.post<Note>(
