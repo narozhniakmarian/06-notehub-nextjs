@@ -2,7 +2,7 @@
 
 "use client";
 
-import noteFetch from "@/lib/noteService";
+import noteFetch from "@/lib/api";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
