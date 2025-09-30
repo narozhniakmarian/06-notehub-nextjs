@@ -12,8 +12,8 @@ import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import Modal from "@/components/Modal/Modal";
 import NoteForm from "@/components/NoteForm/NoteForm";
-import Loader from "@/components/Loader/Loader";
-import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
+import Loader from "@/app/loading";
+import ErrorMessage from "@/app/notes/error";
 import NoteList from "@/components/NoteList/NoteList";
 
 export default function NotesClient() {
