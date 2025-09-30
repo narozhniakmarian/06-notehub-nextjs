@@ -1,6 +1,6 @@
 //app>notes>page.tsx
 
-import noteFetch from "@/lib/noteService";
+import noteFetch from "@/lib/api";
 import {
   dehydrate,
   HydrationBoundary,

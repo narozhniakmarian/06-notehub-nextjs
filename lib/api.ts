@@ -1,4 +1,4 @@
-//lib>noteService.ts
+//lib>api.ts
 
 import axios from "axios";
 import type { Note, NotePost } from "@/types/note";

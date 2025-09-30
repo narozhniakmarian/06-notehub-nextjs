@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import css from "./NoteForm.module.css";
 import { toast } from "react-toastify";
 import { NotePost } from "@/types/note";
-import { createNote } from "@/lib/noteService";
+import { createNote } from "@/lib/api";
 
 interface NoteFormProps {
   onClose?: () => void;
