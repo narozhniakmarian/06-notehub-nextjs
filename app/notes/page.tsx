@@ -15,7 +15,7 @@ async function Notes() {
   const page = 1;
 
   await queryClient.prefetchQuery({
-    queryKey: ["noteHub", search, page],
+    queryKey: ["noteHubKey", search, page],
     queryFn: () => noteFetch(search, page),
   });
   return (
