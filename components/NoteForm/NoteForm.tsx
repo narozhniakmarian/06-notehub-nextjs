@@ -49,13 +49,17 @@ export default function NoteForm({ onClose }: NoteFormProps) {
     >
       <Form className={css.form}>
         <div className={css.formGroup}>
-          <label htmlFor="title">Title</label>
+          <label className={css.lable} htmlFor="title">
+            Title
+          </label>
           <Field id="title" type="text" name="title" className={css.input} />
           <ErrorMessage name="title" className={css.error} component="span" />
         </div>
 
         <div className={css.formGroup}>
-          <label htmlFor="content">Content</label>
+          <label className={css.lable} htmlFor="content">
+            Content
+          </label>
           <Field
             id="content"
             name="content"
@@ -66,7 +70,9 @@ export default function NoteForm({ onClose }: NoteFormProps) {
           <ErrorMessage name="content" component="span" className={css.error} />
         </div>
         <div className={css.formGroup}>
-          <label htmlFor="tag">Tag</label>
+          <label className={css.lable} htmlFor="tag">
+            Tag
+          </label>
           <Field as="select" id="tag" name="tag" className={css.select}>
             <option value="Todo">Todo</option>
             <option value="Work">Work</option>

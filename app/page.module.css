@@ -30,9 +30,6 @@
 }
 
 
-
-
-
 body {
   margin: 0;
   background-color: #ffffff;
@@ -47,9 +44,6 @@ body {
   }
 }
 
-.main {
-  flex: 1;
-}
 
 .container {
   width: 90%;

@@ -5,7 +5,7 @@
 import noteFetch from "@/lib/noteService";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { useDebounce, useDebouncedCallback } from "use-debounce";
 import css from "./NotesPage.module.css";
 import SearchBox from "@/components/SearchBox/SearchBox";
@@ -25,10 +25,10 @@ export default function NotesClient() {
   const handleChange = useDebouncedCallback((value: string) => {
     setSearch(value);
     setPage(1);
-  }, 1000);
+  });
 
   const { data, isLoading, isError, isSuccess } = useQuery({
-    queryKey: ["noteHub", search, page],
+    queryKey: ["noteHubKey", search, page],
     queryFn: () => noteFetch(search, page),
     placeholderData: keepPreviousData,
   });
@@ -49,6 +49,18 @@ export default function NotesClient() {
   }, [debouncedSearch]);
   return (
     <section className={css.app}>
+      <ToastContainer
+        theme="auto"
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className={css.toolbar}>
         <SearchBox value={search} onChange={(value) => handleChange(value)} />
         {isSuccess && notes.length > 0 && data?.totalPages > 1 && (
