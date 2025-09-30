@@ -1,6 +1,7 @@
 // npm i framer-motion
+"use client";
 import { motion } from "framer-motion";
-import css from "./Loader.module.css";
+import css from "./loading.module.css";
 
 const style = {
   width: 20,
