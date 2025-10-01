@@ -7,7 +7,7 @@ import { NotePost } from "@/types/note";
 import { createNote } from "@/lib/api";
 
 interface NoteFormProps {
-  onClose?: () => void;
+  onClose: () => void;
 }
 
 const InitialValues: NotePost = {
@@ -28,9 +28,8 @@ export default function NoteForm({ onClose }: NoteFormProps) {
     },
   });
 
-  const handleSubmit = (values: NotePost, actions: FormikHelpers<NotePost>) => {
+  const handleSubmit = (values: NotePost) => {
     mutation.mutate(values);
-    actions.resetForm();
   };
 
   const CreateNoteFormSchema = Yup.object().shape({
