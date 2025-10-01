@@ -3,7 +3,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import css from "./NoteDetailsClient .module.css";
+import css from "./NoteDetailsClient.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { noteFetchID } from "@/lib/api";
 import Loader from "@/app/loading";
@@ -18,7 +18,7 @@ export default function NoteDetailsClient() {
     isError,
     isSuccess,
   } = useQuery({
-    queryKey: ["noteId", id],
+    queryKey: ["note", id],
     queryFn: () => noteFetchID(id),
     refetchOnMount: false,
   });
