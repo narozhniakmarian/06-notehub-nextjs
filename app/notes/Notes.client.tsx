@@ -50,7 +50,6 @@ export default function NotesClient() {
   return (
     <section className={css.app}>
       <ToastContainer
-        theme="auto"
         position="bottom-right"
         autoClose={3000}
         hideProgressBar={false}
